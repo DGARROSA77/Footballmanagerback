@@ -1,0 +1,17 @@
+POST  http://localhost:3000/api/usuarios/registro
+Content-Type: application/json
+
+{
+    "email": "davidgarrosa_7@hotmail.com",
+    "username": "DavidG",
+    "password": "DavidGarrosa"
+}
+
+### 
+POST http://localhost:3000/api/usuarios/login
+Content-Type: application/json
+
+{
+    "username": "Perico",
+    "password": "12345"
+}
