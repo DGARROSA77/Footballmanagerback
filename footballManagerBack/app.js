@@ -10,6 +10,7 @@ require('./dbconfig');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
+const jugadoresRouter = require('./routes/jugadores');
 
 
 const app = express();
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/jugadores', jugadoresRouter);
 app.use('/api', apiRouter);
 
 

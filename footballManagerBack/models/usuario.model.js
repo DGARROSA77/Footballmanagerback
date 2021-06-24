@@ -15,7 +15,7 @@ const create = ({ username, password, email, name }) => {
 const getByEmail = (pEmail) => {
     return new Promise((resolve, reject) => {
         db.query(
-            'select * from Usuarios where email = ?',
+            'select * from usuarios where email = ?',
             [pEmail],
             (err, rows) => {
                 console.log(rows);
@@ -28,6 +28,7 @@ const getByEmail = (pEmail) => {
 }
 
 const getByUsername = (pUsername) => {
+    console.log(pUsername);
     return new Promise((resolve, reject) => {
         db.query(
             'select * from usuarios where username = ?',

@@ -31,7 +31,7 @@ router.post('/registro', [
 });
 
 router.post('/login', async (req, res) => {
-
+    console.log(req.body.username);
     // 1 - Compruebo si existe el username
     const usuario = await getByUsername(req.body.username);
     if (!usuario) {

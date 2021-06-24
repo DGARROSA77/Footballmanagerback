@@ -1,3 +1,5 @@
+# USUARIOS
+
 POST  http://localhost:3000/api/usuarios/registro
 Content-Type: application/json
 
@@ -12,6 +14,26 @@ POST http://localhost:3000/api/usuarios/login
 Content-Type: application/json
 
 {
-    "username": "Perico",
-    "password": "12345"
+    "username": "Alvaro",
+    "password": "Alvaro"
+}
+
+### JUGADORES 
+GET http://localhost:3000/api/jugadores
+
+###
+GET http://localhost:3000/api/jugadores/2
+
+###
+POST http://localhost:3000/api/jugadores
+Content-Type: application/json
+
+{
+    "nombre": "Asensio",
+    "club": "Real Madrid",
+    "posicion": "Delantero",
+    "precio": 5140000,
+    "edad":26,
+    "nacionalidad": "España"
+
 }
