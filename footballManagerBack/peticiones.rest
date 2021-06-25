@@ -29,11 +29,23 @@ POST http://localhost:3000/api/jugadores
 Content-Type: application/json
 
 {
-    "nombre": "Asensio",
-    "club": "Real Madrid",
+    "nombre": "Dembele",
+    "club": "Barcelona",
     "posicion": "Delantero",
-    "precio": 5140000,
-    "edad":26,
-    "nacionalidad": "España"
+    "precio": 8870000,
+    "edad":23,
+    "nacionalidad": "Francia",
+    "fk_club": 2
 
 }
+
+###
+
+GET http://localhost:3000/api/jugadores/jugadorEdad
+
+###
+GET http://localhost:3000/api/jugadores/club/1
+
+### CLUBS
+
+GET http://localhost:3000/api/clubs

@@ -11,6 +11,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 const jugadoresRouter = require('./routes/jugadores');
+const clubsRouter = require('./routes/clubs');
 
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/jugadores', jugadoresRouter);
+app.use('/clubs', clubsRouter);
 app.use('/api', apiRouter);
 
 

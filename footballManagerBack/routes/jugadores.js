@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAll, getById, update, create } = require('../models/jugadores.model');
+const { getAll, getById, update, create, getByEdad, getByClub } = require('../models/jugadores.model');
 
 // GET http://localhost:3000/jugadores
 router.get('/', async (req, res) => {
@@ -26,5 +26,16 @@ router.post('/create', async (req, res) => {
     }
 })
 
+// get http://localhost:3000/jugadores/jugadorEdad
+router.get('/jugadorEdad', async (req, res) => {
+    const jugador = await getByEdad(req, params.pEdad);
+    res.render('jugador/edad', { jugador });
+});
+
+// get http://localhost:3000/jugadores/jugadorClub
+router.get('/jugadorClub', async (req, res) => {
+    const jugador = await getByClub(req, params.pClub);
+    res.render('jugador/club', { jugador });
+});
 
 module.exports = router;

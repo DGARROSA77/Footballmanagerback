@@ -1,4 +1,4 @@
-const getAll = (limit = 10, page = 1) => {
+const getAll = (limit = 8, page = 1) => {
     return new Promise((resolve, reject) => {
         db.query(
             'select * from jugadores limit ?, ?',
@@ -31,6 +31,15 @@ const getByEdad = (pEdad) => {
     });
 }
 
+const getByClub = (pClub) => {
+    return new Promise((resolve, reject) => {
+        db.query('select * from jugadores where fk_club = ?', [pClub], (err, rows) => {
+            if (err) reject(err);
+            resolve(rows);
+        });
+    });
+}
+
 const update = (pJugadorId, { nombre, club, posicion, precio, edad, nacionalidad }) => {
     return new Promise((resolve, reject) => {
         db.query(
@@ -43,9 +52,9 @@ const update = (pJugadorId, { nombre, club, posicion, precio, edad, nacionalidad
     });
 }
 
-const create = ({ nombre, club, posicion, precio, edad, nacionalidad }) => {
+const create = ({ nombre, club, posicion, precio, edad, nacionalidad, fk_club }) => {
     return new Promise((resolve, reject) => {
-        db.query('insert into jugadores (nombre, club, posicion, precio, edad, nacionalidad) values (?, ?, ?, ?, ?, ?)', [nombre, club, posicion, precio, edad, nacionalidad], (err, result) => {
+        db.query('insert into jugadores (nombre, club, posicion, precio, edad, nacionalidad, fk_club) values (?, ?, ?, ?, ?, ?, ?)', [nombre, club, posicion, precio, edad, nacionalidad, fk_club], (err, result) => {
             if (err) reject(err);
             resolve(result);
         });
@@ -53,5 +62,5 @@ const create = ({ nombre, club, posicion, precio, edad, nacionalidad }) => {
 }
 
 module.exports = {
-    getAll, getById, getByEdad, update, create
+    getAll, getById, getByEdad, update, create, getByClub
 }
