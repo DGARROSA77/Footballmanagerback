@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { getAll, getById, getByEdad, update, create, getByClub } = require('../../models/jugadores.model');
+const { request } = require('express');
+const { getAll, getById, getByEdad, update, create, getByClub, getIdByClub } = require('../../models/jugadores.model');
 
 
 router.get('/', async (req, res) => {
@@ -35,10 +36,22 @@ router.get('/jugadorEdad', async (req, res) => {
     res.json(jugadores);
 });
 
-router.get('/club/:clubId', async (req, res) => {
-    const jugadores = await getByClub(req.params.clubId);
-    res.json(jugadores);
+
+router.get('/club', async (req, res) => {
+    try {
+        const pIdClub = req.query.idClub;
+
+
+        const rows = await getIdByClub(parseInt(pIdClub));
+
+        res.json(rows);
+    } catch (err) {
+        console.log(err);
+        res.json({ error: 'ERROR!!  ' });
+    }
+
 });
+
 
 
 

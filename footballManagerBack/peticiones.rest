@@ -29,23 +29,21 @@ POST http://localhost:3000/api/jugadores
 Content-Type: application/json
 
 {
-    "nombre": "Dembele",
-    "club": "Barcelona",
+    "nombre": "Joao Felix",
+    "club": "Atletico de Madrid",
     "posicion": "Delantero",
-    "precio": 8870000,
+    "precio": 6240000,
     "edad":23,
-    "nacionalidad": "Francia",
-    "fk_club": 2
+    "nacionalidad": "",
+    "fk_club": 3
 
 }
 
 ###
 
-GET http://localhost:3000/api/jugadores/jugadorEdad
-
-###
-GET http://localhost:3000/api/jugadores/club/1
+GET http://localhost:3000/api/jugadores/club?idClub=3
 
 ### CLUBS
 
 GET http://localhost:3000/api/clubs
+

@@ -6,6 +6,6 @@ const apiClubsRouter = require('./api/clubs');
 
 router.use('/usuarios', apiUsuariosRouter);
 router.use('/jugadores', apiJugadoresRouter);
-router.use('/clubs', apiJugadoresRouter);
+router.use('/clubs', apiClubsRouter);
 
 module.exports = router;

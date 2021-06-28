@@ -31,14 +31,7 @@ const getByEdad = (pEdad) => {
     });
 }
 
-const getByClub = (pClub) => {
-    return new Promise((resolve, reject) => {
-        db.query('select * from jugadores where fk_club = ?', [pClub], (err, rows) => {
-            if (err) reject(err);
-            resolve(rows);
-        });
-    });
-}
+
 
 const update = (pJugadorId, { nombre, club, posicion, precio, edad, nacionalidad }) => {
     return new Promise((resolve, reject) => {
@@ -61,6 +54,18 @@ const create = ({ nombre, club, posicion, precio, edad, nacionalidad, fk_club })
     });
 }
 
+
+const getIdByClub = (pIdClub) => {
+    return new Promise((resolve, reject) => {
+        db.query('select * from comunio.jugadores where fk_club = ?', [pIdClub], (err, rows) => {
+            if (err) reject(err);
+            resolve(rows);
+        });
+    });
+}
+
+
+
 module.exports = {
-    getAll, getById, getByEdad, update, create, getByClub
+    getAll, getById, getByEdad, update, create, getIdByClub
 }

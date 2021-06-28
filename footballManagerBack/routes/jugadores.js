@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAll, getById, update, create, getByEdad, getByClub } = require('../models/jugadores.model');
+const { getAll, getById, update, create, getByEdad, getByClub, getIdByClub } = require('../models/jugadores.model');
 
 // GET http://localhost:3000/jugadores
 router.get('/', async (req, res) => {
@@ -32,10 +32,20 @@ router.get('/jugadorEdad', async (req, res) => {
     res.render('jugador/edad', { jugador });
 });
 
-// get http://localhost:3000/jugadores/jugadorClub
-router.get('/jugadorClub', async (req, res) => {
-    const jugador = await getByClub(req, params.pClub);
-    res.render('jugador/club', { jugador });
+
+// get http://localhost:3000/jugadores/club
+router.get('/club', async (req, res) => {
+
+    const pIdClub = parseInt(req.query.pIdClub) || 1;
+
+
+    const jugadores = await getIdByClub(pIdClub);
+
+    // renderizar la vista list.pug pasándole los jugadores
+    res.render('jugadores/list', {
+        arrJugadores: jugadores,
+        page
+    });
 });
 
 module.exports = router;
