@@ -1,0 +1,49 @@
+# USUARIOS
+
+POST  http://localhost:3000/api/usuarios/registro
+Content-Type: application/json
+
+{
+    "email": "davidgarrosa_7@hotmail.com",
+    "username": "DavidG",
+    "password": "DavidGarrosa"
+}
+
+### 
+POST http://localhost:3000/api/usuarios/login
+Content-Type: application/json
+
+{
+    "username": "Alvaro",
+    "password": "Alvaro"
+}
+
+### JUGADORES 
+GET http://localhost:3000/api/jugadores
+
+###
+GET http://localhost:3000/api/jugadores/2
+
+###
+POST http://localhost:3000/api/jugadores
+Content-Type: application/json
+
+{
+    "nombre": "Joao Felix",
+    "club": "Atletico de Madrid",
+    "posicion": "Delantero",
+    "precio": 6240000,
+    "edad":23,
+    "nacionalidad": "",
+    "fk_club": 3
+
+}
+
+###
+
+GET http://localhost:3000/api/jugadores/club?idClub=3
+
+### CLUBS
+
+GET http://localhost:3000/api/clubs
+
